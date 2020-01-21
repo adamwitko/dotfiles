@@ -4,17 +4,11 @@ let &packpath=&runtimepath
 call plug#begin('~/.local/share/nvim/plugged')
 
 " Plugins
-"
-" Linting/Fixing
-Plug 'sbdchd/neoformat'
+" Conquer of Completion that has extensions for TSness
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Javascript
 Plug 'yuezk/vim-js'
 Plug 'MaxMEllon/vim-jsx-pretty'
-" Typescript
-Plug 'leafgarland/typescript-vim'
-Plug 'mhartington/nvim-typescript', {'do': './install.sh' }
-" Completion
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Interface changes
 Plug 'Shougo/denite.nvim'
 " Editing
@@ -42,8 +36,6 @@ call plug#end()
 
 " Custom settings
 "
-let g:deoplete#enable_at_startup = 1
-
 if has('win32') || has('win64')
 	let g:python3_host_prog = 'C:\Python38'
 endif
@@ -62,6 +54,7 @@ set background=dark
 colorscheme gruvbox
 set updatetime=200
 set hlsearch
+set expandtab
 set tabstop=2 shiftwidth=2
 set softtabstop=2
 set noshowmode " hide default command bar at bottomn
@@ -95,50 +88,6 @@ if exists('&signcolumn')
 else
   let g:gitgutter_sign_column_always = 1
 endif
-
-" neoformatter
-augroup fmt
-	autocmd!
-	autocmd BufWritePre * undojoin | Neoformat " this formats on save of all files
-augroup END
-
-let g:standard_prettier_settings={
-              \ 'exe': 'prettier',
-              \ 'args': ['--stdin', '--stdin-filepath', '%:p', '--prose-wrap', 'always'],
-              \ 'stdin': 1,
-              \ }
-
-let g:standard_tslint_settings={
-        \ 'exe': 'tslint',
-        \ 'args': ['--fix', '-c tslint.json'],
-        \ 'replace': 1
-        \ }
-
-let g:neoformat_typescriptreact_prettier=g:standard_prettier_settings
-let g:neoformat_enabled_typescriptreact=['prettier']
-
-let g:neoformat_typescript_prettier=g:standard_prettier_settings
-let g:neoformat_enabled_typescript=['prettier']
-
-let g:neoformat_javascript_prettier=g:standard_prettier_settings
-let g:neoformat_enabled_javascript=['prettier']
-
-let g:neoformat_enabled_vue=['prettier']
-
-let g:neoformat_markdown_prettier = g:standard_prettier_settings
-let g:neoformat_enabled_markdown = ['prettier']
-
-let g:neoformat_html_prettier = g:standard_prettier_settings
-let g:neoformat_enabled_html = ['prettier']
-
-let g:neoformat_json_prettier = g:standard_prettier_settings
-let g:neoformat_enabled_json = ['prettier']
-
-let g:neoformat_scss_prettier = g:standard_prettier_settings
-let g:neoformat_enabled_scss = ['prettier']
-
-let g:mta_use_matchparen_group = 0
-let g:mta_set_default_matchtag_color = 0
 
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
