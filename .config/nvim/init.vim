@@ -6,14 +6,13 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Plugins
 "
 " Linting/Fixing
-"Plug 'w0rp/ale'
 Plug 'sbdchd/neoformat'
 " Javascript
 Plug 'yuezk/vim-js'
 Plug 'MaxMEllon/vim-jsx-pretty'
 " Typescript
 Plug 'leafgarland/typescript-vim'
-Plug 'mhartington/nvim-typescript', {'do': './install.sh', 'commit': '10a93d8ebd8524418479c4e4814d45ddc5d360ef' }
+Plug 'mhartington/nvim-typescript', {'do': './install.sh' }
 " Completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Interface changes
@@ -28,8 +27,7 @@ Plug 'bling/vim-airline'
 " Grep
 Plug 'mileszs/ack.vim'
 " File navigation
-" fzf is required as a binary install on the host machine https://github.com/junegunn/fzf/wiki/Windows
-Plug 'junegunn/fzf'
+Plug 'junegunn/fzf' "installs the binary
 Plug 'junegunn/fzf.vim'
 " Colorschemes
 Plug 'morhetz/gruvbox'
@@ -68,14 +66,12 @@ set tabstop=2 shiftwidth=2
 set softtabstop=2
 set noshowmode " hide default command bar at bottomn
 set autoread " reload files on disk change
-
+set list
 
 hi MatchTag ctermfg=black ctermbg=lightyellow guifg=black guibg=lightyellow
 
 augroup commands
 	autocmd!
-	" Command maps
-	"
 	" <TAB>: completion.
 	inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
@@ -90,9 +86,6 @@ augroup commands
 	" <S-f>: Show all references
 	"nnoremap <S-f> :TSRefs<CR>
 
-	" <F5> Toggle Undotree
-	nnoremap <F5> :UndotreeToggle<cr>
-
 	"cnoreabbrev Ack Ack!
 	nnoremap <Leader>a :Ack!<Space>
 augroup END
@@ -106,7 +99,7 @@ endif
 " neoformatter
 augroup fmt
 	autocmd!
-	autocmd BufWritePre * undojoin | Neoformat
+	autocmd BufWritePre * undojoin | Neoformat " this formats on save of all files
 augroup END
 
 let g:standard_prettier_settings={
@@ -146,7 +139,6 @@ let g:neoformat_enabled_scss = ['prettier']
 
 let g:mta_use_matchparen_group = 0
 let g:mta_set_default_matchtag_color = 0
-set list
 
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
