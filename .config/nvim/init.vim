@@ -31,8 +31,6 @@ Plug 'mileszs/ack.vim'
 " fzf is required as a binary install on the host machine https://github.com/junegunn/fzf/wiki/Windows
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-" Npm
-Plug 'neoclide/npm.nvim', {'do' : 'npm install'}
 " Colorschemes
 Plug 'morhetz/gruvbox'
 " Markdown
@@ -136,6 +134,9 @@ let g:neoformat_enabled_vue=['prettier']
 
 let g:neoformat_markdown_prettier = g:standard_prettier_settings
 let g:neoformat_enabled_markdown = ['prettier']
+
+let g:neoformat_html_prettier = g:standard_prettier_settings
+let g:neoformat_enabled_html = ['prettier']
 
 let g:neoformat_json_prettier = g:standard_prettier_settings
 let g:neoformat_enabled_json = ['prettier']
