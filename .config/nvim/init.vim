@@ -5,6 +5,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " Plugins
 " Conquer of Completion that has extensions for TSness
+Plug 'HerringtonDarkholme/yats.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Javascript
 Plug 'yuezk/vim-js'
@@ -31,7 +32,6 @@ Plug 'gabrielelana/vim-markdown'
 " Vue, handlebars, and other front-end dev
 Plug 'posva/vim-vue'
 Plug 'mustache/vim-mustache-handlebars'
-Plug 'Valloric/MatchTagAlways'
 call plug#end()
 
 " Custom settings
@@ -43,8 +43,10 @@ endif
 let g:ackprg = 'ag --nogroup --nocolor --column'
 let g:airline_powerline_fonts = 1
 
-syntax enable " syntax highlighting
-syntax on
+set nocompatible
+syntax enable
+filetype plugin on
+
 set number " show line numbers
 set ruler " show where you are
 set showmatch
@@ -60,6 +62,7 @@ set softtabstop=2
 set noshowmode " hide default command bar at bottomn
 set autoread " reload files on disk change
 set list
+set path+=** " Allow recursive search when using commands such as :find, gf,
 
 hi MatchTag ctermfg=black ctermbg=lightyellow guifg=black guibg=lightyellow
 
