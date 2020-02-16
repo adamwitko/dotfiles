@@ -43,8 +43,11 @@ endif
 let g:ackprg = 'ag --nogroup --nocolor --column'
 let g:airline_powerline_fonts = 1
 
+set nocompatible
 syntax enable " syntax highlighting
 syntax on
+filetype plugin on
+
 set number " show line numbers
 set ruler " show where you are
 set showmatch
