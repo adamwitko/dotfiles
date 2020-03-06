@@ -2,6 +2,8 @@ hi! link CocErrorSign WarningMsg
 hi! link CocWarningSign Number
 hi! link CocInfoSign Type
 
+let g:coc_global_extensions=[ 'coc-tsserver', 'coc-css', 'coc-prettier', 'coc-json', 'coc-lists', 'coc-snippets', 'coc-vetur', 'coc-go' ]
+
 augroup coc
 	autocmd!
 	" https://github.com/neoclide/coc.nvim#example-vim-configuration
@@ -70,4 +72,8 @@ augroup coc
 	" run code actions
 	vmap <leader>ca  <Plug>(coc-codeaction-selected)
 	nmap <leader>ca  <Plug>(coc-codeaction-selected)
+
+  " Traverse through errors
+  nmap <silent> [g <Plug>(coc-diagnostic-prev)
+  nmap <silent> ]g <Plug>(coc-diagnostic-next)
 augroup END

@@ -32,6 +32,9 @@ Plug 'gabrielelana/vim-markdown'
 " Vue, handlebars, and other front-end dev
 Plug 'posva/vim-vue'
 Plug 'mustache/vim-mustache-handlebars'
+Plug 'Valloric/MatchTagAlways'
+" NERDTree file explorer
+Plug 'preservim/nerdtree'
 call plug#end()
 
 " Custom settings
@@ -63,6 +66,7 @@ set noshowmode " hide default command bar at bottomn
 set autoread " reload files on disk change
 set list
 set path+=** " Allow recursive search when using commands such as :find, gf,
+set noswapfile
 
 hi MatchTag ctermfg=black ctermbg=lightyellow guifg=black guibg=lightyellow
 
@@ -72,20 +76,24 @@ augroup commands
 	inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 	" <C-p>: Open file
-	"nnoremap <C-p> :Files<Cr>
 	nnoremap <expr> <C-p> (len(system('git rev-parse')) ? ':Files' : ':GFiles --exclude-standard --others --cached')."\<cr>"
-
-	" <C-f>: Fix suggest
-	nnoremap <C-f> :TSGetCodeFix
-	" <F12>: Go to Typescript Definition
-	nnoremap <F12> :TSDef<CR>
-	" <S-f>: Show all references
-	"nnoremap <S-f> :TSRefs<CR>
 
 	"cnoreabbrev Ack Ack!
 	nnoremap <Leader>a :Ack!<Space>
 augroup END
 
+augroup nerdtree
+  autocmd!
+
+  " Allows closing of VIM if NERDTree is the only window left open
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+  " Open NERDTree if VIM opened without a file specified
+  autocmd StdinReadPre * let s:std_in=1
+  autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+  nnoremap <C-e> :NERDTreeToggle<CR>
+augroup END
 if exists('&signcolumn')
   set signcolumn=yes
 else

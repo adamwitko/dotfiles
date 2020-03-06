@@ -7,7 +7,9 @@
     "javascriptreact",
     "typescript",
     "typescriptreact",
-    "vue"
+    "vue",
+    "html",
+    "json"
   ],
   "diagnostic.enable": true,
   "diagnostic.errorSign": "✘",
