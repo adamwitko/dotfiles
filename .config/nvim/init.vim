@@ -88,10 +88,6 @@ augroup nerdtree
   " Allows closing of VIM if NERDTree is the only window left open
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-  " Open NERDTree if VIM opened without a file specified
-  autocmd StdinReadPre * let s:std_in=1
-  autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
   nnoremap <C-e> :NERDTreeToggle<CR>
 augroup END
 if exists('&signcolumn')

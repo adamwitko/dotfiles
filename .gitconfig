@@ -1,0 +1,49 @@
+[user]
+	email = adam.witko@gmail.com
+  name = Adam Witko
+[color]
+	branch = auto
+	diff = auto
+	status = auto
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+
+[alias]
+    l = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+    a = add
+    append = commit --amend --no-edit
+    c = commit --verbose
+    cam = commit -a -m
+    m = commit --amend --verbose
+    d = diff
+    ds = diff --stat
+    dc = diff --cached
+    s = status -s
+    co = checkout
+    cob = checkout -b
+    b = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
+    la = "!git config -l | grep alias | cut -c 7-"
+    pf = push --force-with-lease
+	  pb = "!git branch | grep -v 'master' | xargs git branch -D"
+[credential]
+	help = osxkeychain
+	helper = osxkeychain
+[pull]
+	rebase = true
+[core]
+	editor = nvim
+[gpg]
+	program = /usr/local/bin/gpg
+[commit]
+	gpgsign = true
