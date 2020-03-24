@@ -43,7 +43,7 @@
 	rebase = true
 [core]
 	editor = nvim
-[gpg]
-	program = /usr/local/bin/gpg
-[commit]
-	gpgsign = true
+;[gpg]
+	;program = /usr/local/bin/gpg
+;[commit]
+ ; gpgsign = true
