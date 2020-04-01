@@ -9,8 +9,13 @@
     "typescriptreact",
     "vue",
     "html",
-    "json"
+    "json",
+    "react"
   ],
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "all",
+  "prettier.semi": false,
+  "prettier.arrowParens": "always",
   "diagnostic.enable": true,
   "diagnostic.errorSign": "✘",
   "diagnostic.warningSign": "⚠",
