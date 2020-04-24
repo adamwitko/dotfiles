@@ -22,7 +22,7 @@ Plug 'bling/vim-airline'
 " Grep
 Plug 'mileszs/ack.vim'
 " File navigation
-Plug 'junegunn/fzf' "installs the binary
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } "installs the binary
 Plug 'junegunn/fzf.vim'
 " Colorschemes
 Plug 'morhetz/gruvbox'
@@ -69,7 +69,6 @@ set path+=** " Allow recursive search when using commands such as :find, gf,
 set noswapfile
 set cursorline
 
-hi CursorLine ctermbg=black
 hi MatchTag ctermfg=black ctermbg=lightyellow guifg=black guibg=lightyellow
 
 augroup commands
@@ -79,7 +78,10 @@ augroup commands
 
 	" <C-p>: Open file
 	nnoremap <expr> <C-p> (len(system('git rev-parse')) ? ':Files' : ':GFiles --exclude-standard --others --cached')."\<cr>"
-
+  nnoremap <Leader>r :Rg<CR>
+  nnoremap <Leader>b :Buffers<CR>
+  nnoremap <Leader>h :History<CR>
+  "
 	"cnoreabbrev Ack Ack!
 	nnoremap <Leader>a :Ack!<Space>
   nnoremap <Leader>w :Ack!<C-R><C-W><cr>

@@ -1,5 +1,5 @@
 [user]
-	email = adam.witko@gmail.com
+	email = adam.witko@dunelm.com
   name = Adam Witko
 [color]
 	branch = auto
@@ -29,6 +29,7 @@
     d = diff
     ds = diff --stat
     dc = diff --cached
+    dcon = diff --check
     s = status -s
     co = checkout
     cob = checkout -b
