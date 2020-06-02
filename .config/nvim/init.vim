@@ -7,6 +7,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Conquer of Completion that has extensions for TSness
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Scala Metal
+Plug 'scalameta/metals'
 " Javascript
 Plug 'yuezk/vim-js'
 Plug 'MaxMEllon/vim-jsx-pretty'

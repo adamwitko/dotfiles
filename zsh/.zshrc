@@ -58,3 +58,7 @@ alias yip="yarn install --pure-lockfile"
 export GPG_TTY=`tty`
 export FZF_DEFAULT_COMMAND='rg --files --follow --hidden'
 
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/awitko/.sdkman"
+[[ -s "/Users/awitko/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/awitko/.sdkman/bin/sdkman-init.sh"

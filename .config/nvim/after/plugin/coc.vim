@@ -2,7 +2,7 @@ hi! link CocErrorSign WarningMsg
 hi! link CocWarningSign Number
 hi! link CocInfoSign Type
 
-let g:coc_global_extensions=[ 'coc-tsserver', 'coc-css', 'coc-prettier', 'coc-json', 'coc-lists', 'coc-snippets', 'coc-vetur', 'coc-go', 'coc-flow' ]
+let g:coc_global_extensions=[ 'coc-tsserver', 'coc-css', 'coc-prettier', 'coc-json', 'coc-lists', 'coc-snippets', 'coc-vetur', 'coc-flow', 'coc-metals', 'coc-git' ]
 
 augroup coc
 	autocmd!
@@ -37,6 +37,7 @@ augroup coc
 
 	" K - get hint on whatever's under the cursor
 	nnoremap <silent> K :call <SID>show_documentation()<CR>
+  nnoremap <silent> gh :call <SID>show_documentation()<CR>
 
 	function! s:show_documentation()
 		if &filetype == 'vim'

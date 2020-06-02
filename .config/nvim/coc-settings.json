@@ -10,7 +10,8 @@
     "vue",
     "html",
     "json",
-    "react"
+    "react",
+    "scala"
   ],
   "prettier.singleQuote": true,
   "prettier.trailingComma": "all",
@@ -19,6 +20,7 @@
   "diagnostic.enable": true,
   "diagnostic.errorSign": "✘",
   "diagnostic.warningSign": "⚠",
-  "diagnostic.infoSign": "•"
+  "diagnostic.infoSign": "•",
+  "codeLens.enable": true
 }
 
