@@ -37,6 +37,7 @@ Plug 'mustache/vim-mustache-handlebars'
 Plug 'Valloric/MatchTagAlways'
 " NERDTree file explorer
 Plug 'preservim/nerdtree'
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 " Custom settings
@@ -46,7 +47,11 @@ if has('win32') || has('win64')
 endif
 
 let g:ackprg = 'ag --nogroup --nocolor --column'
+
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline#extensions#tabline#buffer_nr_show = 1
 
 set nocompatible
 syntax enable
@@ -81,9 +86,12 @@ augroup commands
 	" <C-p>: Open file
 	nnoremap <expr> <C-p> (len(system('git rev-parse')) ? ':Files' : ':GFiles --exclude-standard --others --cached')."\<cr>"
   nnoremap <Leader>r :Rg<CR>
-  nnoremap <Leader>b :Buffers<CR>
   nnoremap <Leader>h :History<CR>
-  "
+
+  nnoremap <Leader>b :Buffers<CR>
+  nnoremap <C-b>n :bn<CR>
+  nnoremap <C-b>p :bp<CR>
+
 	"cnoreabbrev Ack Ack!
 	nnoremap <Leader>a :Ack!<Space>
   nnoremap <Leader>w :Ack!<C-R><C-W><cr>
@@ -95,7 +103,8 @@ augroup nerdtree
   " Allows closing of VIM if NERDTree is the only window left open
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-  nnoremap <C-e> :NERDTreeToggle<CR>
+  nnoremap <C-e> :NERDTreeFind<CR>
+  " Open NERDTree in the directory of the current file (or /home if no file is open)
 augroup END
 if exists('&signcolumn')
   set signcolumn=yes
