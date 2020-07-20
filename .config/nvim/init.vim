@@ -35,9 +35,6 @@ Plug 'gabrielelana/vim-markdown'
 Plug 'posva/vim-vue'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'Valloric/MatchTagAlways'
-" NERDTree file explorer
-Plug 'preservim/nerdtree'
-Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 " Custom settings

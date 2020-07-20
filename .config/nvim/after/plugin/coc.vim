@@ -37,7 +37,6 @@ augroup coc
 
 	" K - get hint on whatever's under the cursor
 	nnoremap <silent> K :call <SID>show_documentation()<CR>
-  nnoremap <silent> gh :call <SID>show_documentation()<CR>
 
 	function! s:show_documentation()
 		if &filetype == 'vim'

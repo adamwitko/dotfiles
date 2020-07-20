@@ -1,5 +1,4 @@
 export ZSH=/Users/awitko/.oh-my-zsh
-#ZSH_THEME="wezm"
 ZSH_THEME="spaceship"
 
 plugins=(
@@ -43,19 +42,11 @@ function fmar() {
   git rebase origin/master
 }
 
-function vpn-connect {
-  echo "Connecting to $1"
-  sudo openconnect -b $1
-}
-
-function vpn-disconnect {
-	echo "Disconnecting..."
-	sudo pkill -SIGINT openconnect
-}
-
 alias v="nvim"
 alias ls="ls -la"
 alias yip="yarn install --pure-lockfile"
+alias grd="cd $(git rev-parse --show-cdup)"
+
 export GPG_TTY=`tty`
 export FZF_DEFAULT_COMMAND='rg --files --follow --hidden'
 
