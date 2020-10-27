@@ -35,6 +35,8 @@ Plug 'gabrielelana/vim-markdown'
 Plug 'posva/vim-vue'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'Valloric/MatchTagAlways'
+Plug 'evanleck/vim-svelte'
+
 call plug#end()
 
 " Custom settings
@@ -61,6 +63,7 @@ set ignorecase " case-insensitive search
 set clipboard=unnamedplus " yank and pase with system clipboard
 set background=dark
 colorscheme gruvbox
+
 set updatetime=200
 set hlsearch
 set expandtab
@@ -103,6 +106,7 @@ augroup nerdtree
   nnoremap <C-e> :NERDTreeFind<CR>
   " Open NERDTree in the directory of the current file (or /home if no file is open)
 augroup END
+
 if exists('&signcolumn')
   set signcolumn=yes
 else
