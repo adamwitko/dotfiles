@@ -13,14 +13,9 @@
     "react",
     "scala"
   ],
-  "prettier.singleQuote": true,
-  "prettier.trailingComma": "all",
-  "prettier.semi": false,
-  "prettier.arrowParens": "always",
   "diagnostic.enable": true,
   "diagnostic.errorSign": "✘",
   "diagnostic.warningSign": "⚠",
   "diagnostic.infoSign": "•",
   "codeLens.enable": true
 }
-

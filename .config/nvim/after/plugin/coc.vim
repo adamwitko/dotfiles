@@ -2,7 +2,7 @@ hi! link CocErrorSign WarningMsg
 hi! link CocWarningSign Number
 hi! link CocInfoSign Type
 
-let g:coc_global_extensions=[ 'coc-tsserver', 'coc-css', 'coc-prettier', 'coc-json', 'coc-lists', 'coc-snippets', 'coc-vetur', 'coc-flow', 'coc-metals', 'coc-git', 'coc-svelte', 'coc-jest' ]
+let g:coc_global_extensions=[ 'coc-tsserver', 'coc-css', 'coc-prettier', 'coc-json', 'coc-lists', 'coc-snippets', 'coc-vetur', 'coc-flow', 'coc-metals', 'coc-git', 'coc-svelte', 'coc-jest']
 
 augroup coc
 	autocmd!
@@ -76,4 +76,11 @@ augroup coc
   " Traverse through errors
   nmap <silent> [g <Plug>(coc-diagnostic-prev)
   nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+  " Jest
+  " Run jest for current file
+  command! -nargs=0 JestCurrent :call  CocAction('runCommand', 'jest.fileTest', ['%'])
+
+  " Run jest for current test
+  nnoremap <leader>te :call CocAction('runCommand', 'jest.singleTest')<CR>
 augroup END

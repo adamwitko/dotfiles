@@ -5,6 +5,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+#export JAVA_HOME='/usr/libexec/java_home -v 11.0'
 export ZSH=/Users/awitko/.oh-my-zsh
 #ZSH_THEME="spaceship"
 ZSH_THEME="powerlevel10k/powerlevel10k"
@@ -65,3 +66,4 @@ export SDKMAN_DIR="/Users/awitko/.sdkman"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+export NPM_TOKEN="V15nKSC3MxNA8JUeuz7Y"
