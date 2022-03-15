@@ -2,7 +2,7 @@ hi! link CocErrorSign WarningMsg
 hi! link CocWarningSign Number
 hi! link CocInfoSign Type
 
-let g:coc_global_extensions=[ 'coc-tsserver', 'coc-css', 'coc-prettier', 'coc-json', 'coc-lists', 'coc-snippets', 'coc-vetur', 'coc-flow', 'coc-metals', 'coc-git', 'coc-svelte', 'coc-jest']
+let g:coc_global_extensions=[ 'coc-tsserver', 'coc-css', 'coc-prettier', 'coc-json', 'coc-lists', 'coc-snippets', 'coc-vetur', 'coc-flow', 'coc-metals', 'coc-git', 'coc-svelte', 'coc-highlight', 'coc-explorer']
 
 augroup coc
 	autocmd!
@@ -52,6 +52,9 @@ augroup coc
 	nnoremap <silent> <leader>co  :<C-u>CocList outline<cr>
 	nnoremap <silent> <leader>cs  :<C-u>CocList -I symbols<cr>
 
+" Show all diagnostics.
+  nnoremap <silent><nowait> <leader>cd  :<C-u>CocList diagnostics<cr>
+
 	" List errors
 	nnoremap <silent> <leader>cl  :<C-u>CocList locationlist<cr>
 
@@ -72,15 +75,12 @@ augroup coc
 	" run code actions
 	vmap <leader>ca  <Plug>(coc-codeaction-selected)
 	nmap <leader>ca  <Plug>(coc-codeaction-selected)
+  nmap <silent> <c-space> <Plug>(coc-codeaction-line)
 
   " Traverse through errors
   nmap <silent> [g <Plug>(coc-diagnostic-prev)
   nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
-  " Jest
-  " Run jest for current file
-  command! -nargs=0 JestCurrent :call  CocAction('runCommand', 'jest.fileTest', ['%'])
+  nnoremap <space>e :CocCommand explorer<CR>
 
-  " Run jest for current test
-  nnoremap <leader>te :call CocAction('runCommand', 'jest.singleTest')<CR>
 augroup END

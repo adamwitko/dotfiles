@@ -28,6 +28,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } "installs the binary
 Plug 'junegunn/fzf.vim'
 " Colorschemes
 Plug 'rakr/vim-one'
+Plug 'chriskempson/base16-vim'
 " Markdown
 Plug 'godlygeek/tabular'
 Plug 'gabrielelana/vim-markdown'
@@ -39,6 +40,9 @@ Plug 'evanleck/vim-svelte'
 " net-rw enhancement
 Plug 'tpope/vim-vinegar'
 Plug 'jparise/vim-graphql'
+Plug 'editorconfig/editorconfig-vim'
+
+Plug 'reedes/vim-pencil'
 
 call plug#end()
 
@@ -48,7 +52,7 @@ if has('win32') || has('win64')
 	let g:python3_host_prog = 'C:\Python38'
 endif
 
-let g:ackprg = 'ag --nogroup --nocolor --column'
+let g:ackprg = 'ag --nogroup --column --ignore .git'
 
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -67,7 +71,7 @@ set clipboard=unnamedplus " yank and pase with system clipboard
 
 let g:one_allow_italics = 1 " I love italic for comments
 let g:airline_theme='one'
-colorscheme one
+colorscheme base16-materia
 set background=dark
 
 if (empty($TMUX))
@@ -101,6 +105,7 @@ hi MatchTag ctermfg=black ctermbg=lightyellow guifg=black guibg=lightyellow
 
 augroup commands
 	autocmd!
+  "cabbrev E Explore
 	" <TAB>: completion.
 	inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
@@ -124,6 +129,6 @@ else
   let g:gitgutter_sign_column_always = 1
 endif
 
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
+"let g:netrw_banner = 0
+"let g:netrw_liststyle = 3
 
