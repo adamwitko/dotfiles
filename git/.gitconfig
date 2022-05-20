@@ -46,7 +46,10 @@
 	rebase = true
 [core]
 	editor = nvim
+	pager = diff-so-fancy | less --tabs=4 -RFX
 ;[gpg]
 	;program = /usr/local/bin/gpg
 ;[commit]
  ; gpgsign = true
+[interactive]
+	diffFilter = diff-so-fancy --patch

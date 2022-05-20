@@ -39,10 +39,16 @@ Plug 'Valloric/MatchTagAlways'
 Plug 'evanleck/vim-svelte'
 " net-rw enhancement
 Plug 'tpope/vim-vinegar'
+" Graphql
 Plug 'jparise/vim-graphql'
+" Editor config
 Plug 'editorconfig/editorconfig-vim'
-
-Plug 'reedes/vim-pencil'
+" Diffing
+Plug 'nvim-lua/plenary.nvim'
+Plug 'sindrets/diffview.nvim'
+" Tabs + tab nav
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'romgrk/barbar.nvim'
 
 call plug#end()
 
@@ -100,6 +106,7 @@ set list
 set path+=** " Allow recursive search when using commands such as :find, gf,
 set noswapfile
 set cursorline
+set mouse+=a
 
 hi MatchTag ctermfg=black ctermbg=lightyellow guifg=black guibg=lightyellow
 
@@ -114,13 +121,32 @@ augroup commands
   nnoremap <Leader>r :Rg<CR>
   nnoremap <Leader>h :History<CR>
 
-  nnoremap <Leader>b :Buffers<CR>
-  nnoremap <C-b>n :bn<CR>
-  nnoremap <C-b>p :bp<CR>
-
 	"cnoreabbrev Ack Ack!
 	nnoremap <Leader>a :Ack!<Space>
   nnoremap <Leader>w :Ack!<C-R><C-W><cr>
+
+  " barbar.nvim
+  " Move to previous/next
+  " Move to previous/next
+  nnoremap <silent>    <A-,> :BufferPrevious<CR>
+  nnoremap <silent>    <A-.> :BufferNext<CR>
+  " Re-order to previous/next
+  nnoremap <silent>    <A-<> :BufferMovePrevious<CR>
+  nnoremap <silent>    <A->> :BufferMoveNext<CR>
+  " Goto buffer in position...
+  nnoremap <silent>    <A-1> :BufferGoto 1<CR>
+  nnoremap <silent>    <A-2> :BufferGoto 2<CR>
+  nnoremap <silent>    <A-3> :BufferGoto 3<CR>
+  nnoremap <silent>    <A-4> :BufferGoto 4<CR>
+  nnoremap <silent>    <A-5> :BufferGoto 5<CR>
+  nnoremap <silent>    <A-6> :BufferGoto 6<CR>
+  nnoremap <silent>    <A-7> :BufferGoto 7<CR>
+  nnoremap <silent>    <A-8> :BufferGoto 8<CR>
+  nnoremap <silent>    <A-9> :BufferLast<CR>
+  " Pin/unpin buffer
+  nnoremap <silent>    <A-p> :BufferPin<CR>
+  " Close buffer
+  nnoremap <silent>    <A-c> :BufferClose<CR>
 augroup END
 
 if exists('&signcolumn')
@@ -129,6 +155,4 @@ else
   let g:gitgutter_sign_column_always = 1
 endif
 
-"let g:netrw_banner = 0
-"let g:netrw_liststyle = 3
 

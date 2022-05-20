@@ -13,6 +13,7 @@ plugins=(
   zsh-syntax-highlighting
   zsh-autosuggestions
   web-search
+  navi
 )
 
 source $ZSH/oh-my-zsh.sh
