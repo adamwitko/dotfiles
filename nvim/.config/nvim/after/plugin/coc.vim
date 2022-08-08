@@ -6,16 +6,17 @@ let g:coc_global_extensions=[ 'coc-tsserver', 'coc-css', 'coc-prettier', 'coc-js
 
 augroup coc
 	autocmd!
-	" https://github.com/neoclide/coc.nvim#example-vim-configuration
-	" Use tab for trigger completion with characters ahead and navigate.
-	" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-	inoremap <silent><expr> <TAB>
-				\ pumvisible() ? "\<C-n>" :
-				\ <SID>check_back_space() ? "\<TAB>" :
-				\ coc#refresh()
-	" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
-	" Coc only does snippet and additional edit on confirm.
-	inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+ " inoremap <silent><expr> <TAB>
+				"\ pumvisible() ? "\<C-n>" :
+				"\ <SID>check_back_space() ? "\<TAB>" :
+				"\ coc#refresh()
+	"inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+  inoremap <silent><expr> <TAB>
+        \ coc#pum#visible() ? coc#pum#next(1):
+        \ <SID>check_back_space() ? "\<Tab>" :
+        \ coc#refresh()
+  inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
 	inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 	function! s:check_back_space() abort
