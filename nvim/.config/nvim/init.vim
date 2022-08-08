@@ -19,6 +19,7 @@ Plug 'scrooloose/nerdcommenter'
 " Git
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+Plug 'kdheepak/lazygit.nvim'
 " Status bar
 Plug 'bling/vim-airline'
 " Grep
