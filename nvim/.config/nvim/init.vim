@@ -148,6 +148,7 @@ augroup commands
   nnoremap <silent>    <A-p> :BufferPin<CR>
   " Close buffer
   nnoremap <silent>    <A-c> :BufferClose<CR>
+  nnoremap <silent> <leader>gg :LazyGit<CR>
 augroup END
 
 if exists('&signcolumn')
