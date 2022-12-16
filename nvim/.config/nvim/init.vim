@@ -50,6 +50,8 @@ Plug 'sindrets/diffview.nvim'
 " Tabs + tab nav
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'romgrk/barbar.nvim'
+Plug 'lukechilds/zsh-nvm'
+Plug 'hashivim/vim-terraform'
 
 call plug#end()
 
@@ -156,5 +158,3 @@ if exists('&signcolumn')
 else
   let g:gitgutter_sign_column_always = 1
 endif
-
-
