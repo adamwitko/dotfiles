@@ -5,6 +5,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
 export ZSH=/Users/awitko/.oh-my-zsh
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
@@ -13,7 +17,6 @@ plugins=(
   zsh-syntax-highlighting
   zsh-autosuggestions
   web-search
-  navi
   zsh-auto-nvm-use
 )
 
@@ -29,10 +32,10 @@ function fmar() {
 
 alias v="nvim"
 alias ls="ls -la"
-alias yip="yarn install --pure-lockfile"
 alias grd="cd $(git rev-parse --show-cdup)"
 alias pip="python -m pip"
 alias dps="cd ~/dev/delivery-promise"
+alias whichp="lsof -i -P | grep LISTEN | grep :$PORT"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -46,3 +49,5 @@ export SDKMAN_DIR="/Users/awitko/.sdkman"
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH="/usr/local/opt/mysql-client@5.7/bin:$PATH"
+
+source /Users/AWitko/.docker/init-zsh.sh || true # Added by Docker Desktop

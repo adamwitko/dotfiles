@@ -30,6 +30,7 @@ Plug 'junegunn/fzf.vim'
 " Colorschemes
 Plug 'rakr/vim-one'
 Plug 'chriskempson/base16-vim'
+Plug 'mhartington/oceanic-next'
 " Markdown
 Plug 'godlygeek/tabular'
 Plug 'gabrielelana/vim-markdown'
@@ -69,7 +70,6 @@ let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
 set nocompatible
-syntax enable
 filetype plugin on
 
 set number " show line numbers
@@ -79,9 +79,8 @@ set ignorecase " case-insensitive search
 set clipboard=unnamedplus " yank and pase with system clipboard
 
 let g:one_allow_italics = 1 " I love italic for comments
-let g:airline_theme='one'
-colorscheme base16-materia
-set background=dark
+"let g:airline_theme='one'
+let g:airline_theme='oceanicnext'
 
 if (empty($TMUX))
   if (has("nvim"))
@@ -95,6 +94,13 @@ if (empty($TMUX))
     set termguicolors
   endif
 endif
+
+syntax enable
+"colorscheme base16-materia
+colorscheme OceanicNext
+let g:oceanic_next_terminal_bold = 1
+let g:oceanic_next_terminal_italic = 1
+set background=dark
 
 set updatetime=200
 set hlsearch    " Search highlighting
