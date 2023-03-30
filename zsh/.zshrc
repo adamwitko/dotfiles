@@ -49,5 +49,8 @@ export SDKMAN_DIR="/Users/awitko/.sdkman"
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH="/usr/local/opt/mysql-client@5.7/bin:$PATH"
+export DOCKER_HOST=unix:///Users/AWitko/.docker/run/docker.sock
 
 source /Users/AWitko/.docker/init-zsh.sh || true # Added by Docker Desktop
+export PATH=$(pyenv root)/shims:$PATH
+

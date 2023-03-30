@@ -28,8 +28,6 @@ Plug 'mileszs/ack.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } "installs the binary
 Plug 'junegunn/fzf.vim'
 " Colorschemes
-Plug 'rakr/vim-one'
-Plug 'chriskempson/base16-vim'
 Plug 'mhartington/oceanic-next'
 " Markdown
 Plug 'godlygeek/tabular'
@@ -51,8 +49,10 @@ Plug 'sindrets/diffview.nvim'
 " Tabs + tab nav
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'romgrk/barbar.nvim'
-Plug 'lukechilds/zsh-nvm'
+" Terraform
 Plug 'hashivim/vim-terraform'
+" Github Copilot
+Plug 'github/copilot.vim'
 
 call plug#end()
 
