@@ -1,8 +1,8 @@
 [user]
  	email = adam.witko@gmail.com
 	name = adamwitko
-	;email = adam.witko@dunelm.com
-  ;name = Adam Witko
+[includeIf "gitdir:~/dev/"]
+  path = ~/dev/.gitconfig
 [color]
 	branch = auto
 	diff = auto
