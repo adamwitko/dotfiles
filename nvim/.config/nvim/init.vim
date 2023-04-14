@@ -47,12 +47,13 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'sindrets/diffview.nvim'
 " Tabs + tab nav
-Plug 'kyazdani42/nvim-web-devicons'
 Plug 'romgrk/barbar.nvim'
 " Terraform
 Plug 'hashivim/vim-terraform'
 " Github Copilot
 Plug 'github/copilot.vim'
+" Icons 
+Plug 'kyazdani42/nvim-web-devicons'
 
 call plug#end()
 
@@ -69,14 +70,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
-set nocompatible
 filetype plugin on
-
-set number " show line numbers
-set ruler " show where you are
-set showmatch
-set ignorecase " case-insensitive search
-set clipboard=unnamedplus " yank and pase with system clipboard
 
 let g:one_allow_italics = 1 " I love italic for comments
 "let g:airline_theme='one'
@@ -95,27 +89,56 @@ if (empty($TMUX))
   endif
 endif
 
-syntax enable
-"colorscheme base16-materia
 colorscheme OceanicNext
 let g:oceanic_next_terminal_bold = 1
 let g:oceanic_next_terminal_italic = 1
-set background=dark
 
-set updatetime=200
-set hlsearch    " Search highlighting
-set ignorecase  " Ignore case when searching
-set smartcase  " Smart case switching if search term contains uppercase
-set expandtab
-set tabstop=2 shiftwidth=2
+" TEXT RENDERING OPTIONS
+syntax enable
 set softtabstop=2
-set noshowmode " hide default command bar at bottomn
-set autoread " reload files on disk change
+set encoding=utf-8    " use an encoding that supports unicode
+set linebreak         " avoid wrapping a line in the middle of a word
+set scrolloff=1       " the number of screen lines to keep above and below the cursor
+
+" USER INTERFACE OPTIONS
+set termguicolors
+set number                    " show line numbers
+set ruler                     " show where you are
+set noshowmode                " disable vim mode being displayed on the last line, we are using powerline for this
+set mouse+=a                  " enable mouse for scrolling and resizing
+set cursorline                " highlight the line currently under cursor
+set background=dark
+set splitright               " split new window to the right of the current window
+set title
+
+" MISC OPTIONS
+set showmatch                 " jump to matching bracket
+set clipboard=unnamedplus     " yank and pase with system clipboard
+set autoread                  " autoread/load the files changed externally
+set noswapfile
+set nocompatible
 set list
 set path+=** " Allow recursive search when using commands such as :find, gf,
-set noswapfile
-set cursorline
-set mouse+=a
+
+
+" PERFORMANCE OPTIONS 
+set lazyredraw     " don't update the screen during macro and script execution
+set updatetime=300 " default milisecond for swapfile write on idle
+
+" SEARCH OPTIONS
+set hlsearch                      " Search highlighting
+set smartcase                     " Smart case switching if search term contains uppercase
+set ignorecase                    " Ignore case when searching
+set incsearch                     " incremental search that shows partial matches
+
+" INDENTATION OPTIONS
+set autoindent                    " new lines inherit the indentation of previous lines
+set tabstop=2                     " indent using two spaces
+set shiftwidth=2                  " when shifting, indent using two spaces
+set smarttab                      " insert 'tabstop' number of spaces when the 'tab' key is pressed
+set expandtab                     " converts tabs to spaces
+filetype indent on                " enable indentation rules that are file-type specific
+set shiftround                    " when shifting lines, round the indentation to the nearest multiple of 'shiftwidth'
 
 hi MatchTag ctermfg=black ctermbg=lightyellow guifg=black guibg=lightyellow
 
@@ -157,6 +180,22 @@ augroup commands
   " Close buffer
   nnoremap <silent>    <A-c> :BufferClose<CR>
   nnoremap <silent> <leader>gg :LazyGit<CR>
+
+  " Disable arrow keys
+  noremap <Up> <Nop>
+  noremap <Down> <Nop>
+  noremap <Left> <Nop>
+  noremap <Right> <Nop>
+  inoremap <Up> <Nop>
+  inoremap <Down> <Nop>
+  inoremap <Left> <Nop>
+  inoremap <Right> <Nop>
+
+  " Copilot
+  imap <silent> <C-j> <Plug>(copilot-next)
+  imap <silent> <C-k> <Plug>(copilot-previous)
+  imap <silent> <C-\> <Plug>(copilot-dismiss)
+  imap <silent> <C-s> <Plug>(copilot-suggest)
 augroup END
 
 if exists('&signcolumn')
@@ -164,3 +203,4 @@ if exists('&signcolumn')
 else
   let g:gitgutter_sign_column_always = 1
 endif
+

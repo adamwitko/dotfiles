@@ -6,11 +6,6 @@ let g:coc_global_extensions=[ 'coc-tsserver', 'coc-css', 'coc-prettier', 'coc-js
 
 augroup coc
 	autocmd!
- " inoremap <silent><expr> <TAB>
-				"\ pumvisible() ? "\<C-n>" :
-				"\ <SID>check_back_space() ? "\<TAB>" :
-				"\ coc#refresh()
-	"inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
   inoremap <silent><expr> <TAB>
         \ coc#pum#visible() ? coc#pum#next(1):
         \ <SID>check_back_space() ? "\<Tab>" :

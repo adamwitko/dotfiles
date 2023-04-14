@@ -36,6 +36,7 @@ alias grd="cd $(git rev-parse --show-cdup)"
 alias pip="python -m pip"
 alias dps="cd ~/dev/delivery-promise"
 alias whichp="lsof -i -P | grep LISTEN | grep :$PORT"
+alias z="zellij"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -54,3 +55,4 @@ export DOCKER_HOST=unix:///Users/AWitko/.docker/run/docker.sock
 source /Users/AWitko/.docker/init-zsh.sh || true # Added by Docker Desktop
 export PATH=$(pyenv root)/shims:$PATH
 
+export ZELLIJ_CONFIG_DIR=~/zellij
