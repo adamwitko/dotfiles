@@ -140,6 +140,9 @@ set expandtab                     " converts tabs to spaces
 filetype indent on                " enable indentation rules that are file-type specific
 set shiftround                    " when shifting lines, round the indentation to the nearest multiple of 'shiftwidth'
 
+set undodir=~/.vim/undodir
+set undofile
+
 hi MatchTag ctermfg=black ctermbg=lightyellow guifg=black guibg=lightyellow
 
 augroup commands

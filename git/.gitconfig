@@ -53,3 +53,5 @@
  ; gpgsign = true
 [interactive]
 	diffFilter = diff-so-fancy --patch
+[http]
+	postBuffer = 524288000
