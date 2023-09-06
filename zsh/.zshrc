@@ -40,8 +40,9 @@ alias z="zellij"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-export NPM_TOKEN="xzMiZyLLy2VCn2PPgA66"
-export CI_JOB_TOKEN="xzMiZyLLy2VCn2PPgA66"
+export NPM_TOKEN=""
+export CI_JOB_TOKEN=$NPM_TOKEN
+export GITLAB_TOKEN=$NPM_TOKEN
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/awitko/.sdkman"

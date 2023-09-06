@@ -2,7 +2,7 @@ hi! link CocErrorSign WarningMsg
 hi! link CocWarningSign Number
 hi! link CocInfoSign Type
 
-let g:coc_global_extensions=[ 'coc-tsserver', 'coc-css', 'coc-prettier', 'coc-json', 'coc-lists', 'coc-snippets', 'coc-vetur', 'coc-flow', 'coc-metals', 'coc-git', 'coc-svelte', 'coc-highlight', 'coc-explorer']
+let g:coc_global_extensions=[ 'coc-tsserver', 'coc-css', 'coc-prettier', 'coc-json', 'coc-lists', 'coc-snippets', 'coc-vetur', 'coc-flow', 'coc-git', 'coc-svelte', 'coc-highlight', 'coc-explorer', 'coc-emmet', 'coc-pairs']
 
 augroup coc
 	autocmd!
