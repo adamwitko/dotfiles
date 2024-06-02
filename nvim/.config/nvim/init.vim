@@ -19,14 +19,15 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'kdheepak/lazygit.nvim'
 " Status bar
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 " Grep
 Plug 'mileszs/ack.vim'
 " File navigation
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } "installs the binary
 Plug 'junegunn/fzf.vim'
 " Colorschemes
-Plug 'mhartington/oceanic-next'
+Plug 'folke/tokyonight.nvim'
 " Markdown
 Plug 'godlygeek/tabular'
 Plug 'gabrielelana/vim-markdown'
@@ -48,8 +49,6 @@ Plug 'sindrets/diffview.nvim'
 Plug 'romgrk/barbar.nvim'
 " Terraform
 Plug 'hashivim/vim-terraform'
-" Github Copilot
-Plug 'github/copilot.vim'
 " Icons 
 Plug 'kyazdani42/nvim-web-devicons'
 
@@ -71,8 +70,7 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 filetype plugin on
 
 let g:one_allow_italics = 1 " I love italic for comments
-"let g:airline_theme='one'
-let g:airline_theme='oceanicnext'
+let g:airline_theme='nord_minimal'
 
 if (empty($TMUX))
   if (has("nvim"))
@@ -87,9 +85,9 @@ if (empty($TMUX))
   endif
 endif
 
-colorscheme OceanicNext
-let g:oceanic_next_terminal_bold = 1
-let g:oceanic_next_terminal_italic = 1
+colorscheme tokyonight
+
+let mapleader="#"
 
 " TEXT RENDERING OPTIONS
 syntax enable
@@ -118,7 +116,6 @@ set nocompatible
 set list
 set path+=** " Allow recursive search when using commands such as :find, gf,
 
-
 " PERFORMANCE OPTIONS 
 set lazyredraw     " don't update the screen during macro and script execution
 set updatetime=300 " default milisecond for swapfile write on idle
@@ -144,18 +141,16 @@ set undofile
 hi MatchTag ctermfg=black ctermbg=lightyellow guifg=black guibg=lightyellow
 
 augroup commands
-	autocmd!
-  "cabbrev E Explore
-	" <TAB>: completion.
-	inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+  autocmd!
 
-	" <C-p>: Open file
-	nnoremap <expr> <C-p> (len(system('git rev-parse')) ? ':Files' : ':GFiles --exclude-standard --others --cached')."\<cr>"
+  inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+  nnoremap <expr> <C-p> (len(system('git rev-parse')) ? ':Files' : ':GFiles --exclude-standard --others --cached')."\<cr>"
   nnoremap <Leader>r :Rg<CR>
   nnoremap <Leader>h :History<CR>
 
-	"cnoreabbrev Ack Ack!
-	nnoremap <Leader>a :Ack!<Space>
+  "cnoreabbrev Ack Ack!
+  nnoremap <Leader>a :Ack!<Space>
   nnoremap <Leader>w :Ack!<C-R><C-W><cr>
 
   " barbar.nvim
@@ -180,7 +175,7 @@ augroup commands
   nnoremap <silent>    <A-p> :BufferPin<CR>
   " Close buffer
   nnoremap <silent>    <A-c> :BufferClose<CR>
-  nnoremap <silent> <leader>gg :LazyGit<CR>
+  nnoremap <silent>    <Leader>gg :LazyGit<CR>
 
   " Disable arrow keys
   noremap <Up> <Nop>
@@ -191,12 +186,6 @@ augroup commands
   inoremap <Down> <Nop>
   inoremap <Left> <Nop>
   inoremap <Right> <Nop>
-
-  " Copilot
-  imap <silent> <C-j> <Plug>(copilot-next)
-  imap <silent> <C-k> <Plug>(copilot-previous)
-  imap <silent> <C-\> <Plug>(copilot-dismiss)
-  imap <silent> <C-s> <Plug>(copilot-suggest)
 augroup END
 
 if exists('&signcolumn')
